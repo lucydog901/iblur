@@ -11,7 +11,7 @@ class Image
     end
   end
 
-  def get_coord
+  def blur!
     coords = []
     @rows.each_with_index do |current_row, row_index|
       current_row.each_with_index do |current_column, column_index|
@@ -19,14 +19,17 @@ class Image
           coords << [row_index, column_index] 
         end
       end
-      coords.each do |row_index, column_index|
-        @rows[row_index-1][column_index]=1 if row_index-1 >= 0
-        @rows[row_index+1][column_index]=1 if row_index+1 < row_num
-        @rows[row_index][column_index-1]=1 if column_index-1 >= 0
-        @rows[row_index][column_index+1]=1 if column_index+1 < col_num
-      end
+    end
+
+    coords.each do |row_index, column_index|
+      @rows[row_index-1][column_index]=1 if row_index-1 >= 0
+      @rows[row_index+1][column_index]=1 if row_index+1 < row_num
+      @rows[row_index][column_index-1]=1 if column_index-1 >= 0
+      @rows[row_index][column_index+1]=1 if column_index+1 < col_num
     end
   end
+
+
   
 
   def row_num
@@ -47,6 +50,6 @@ image = Image.new([
    ])
  
   image.output_image
-  image.get_coord
+  image.blur!
   puts
   image.output_image

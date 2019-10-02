@@ -21,7 +21,7 @@ class Image
       end
       coords.each do |row_index, column_index|
         @rows[row_index-1][column_index]=1 unless row_index == 0
-        @rows[row_index+1][column_index]=1 unless row_index >= row_num - 1
+        @rows[row_index+1][column_index]=1 unless row_index >= row_num-1
         @rows[row_index][column_index-1]=1 unless column_index == 0
         @rows[row_index][column_index+1]=1 unless column_index >= col_num-1
       end
