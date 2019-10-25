@@ -14,11 +14,13 @@ class Image
   def blur!
     coords = []
     @rows.each_with_index do |current_row, row_index|
-      current_row.each_with_index do |current_column, column_index|
-        if current_column == 1 
-          coords << [row_index, column_index] 
-        end
-      end
+      puts current_row
+      # current_row.each_with_index do |current_column, column_index|
+      #   if current_column == 1 
+      #     coords << [row_index, column_index] 
+      #   end
+      # end
+      break
     end
 
     coords.each do |row_index, column_index|
