@@ -60,4 +60,5 @@ image = Image.new([
 
   image.output_image
   image.get_coord(2)
+  puts
   image.output_image
